@@ -1,0 +1,7 @@
+SRC := $(wildcard *.cpp)
+
+MACOS_SPFC := -I/opt/homebrew/include -L/opt/homebrew/lib \
+	-lraylib -framework IOKit -framework Cocoa -framework OpenGL
+
+main: $(SRC) $(wildcard *.h)
+	clang++ -std=c++17 $(SRC) -o main $(MACOS_SPFC)
